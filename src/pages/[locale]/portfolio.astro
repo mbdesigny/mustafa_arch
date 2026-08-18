@@ -1,0 +1,100 @@
+---
+
+import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import Marquee from "../../components/Marquee.astro";
+import { t, setLocale } from "../../i18n/ui";
+setLocale(Astro.params.locale ?? "en");
+
+export function getStaticPaths() {
+  return [{ params: { locale: "en" } }, { params: { locale: "fr" } }, { params: { locale: "ar" } }];
+}
+const locale = Astro.params.locale ?? "en";
+
+const projects = [
+  { img: "01.png", col: ["col-xl-7", "col-md-6"], cat: "home.project1.cat", name: "home.project1.title" },
+  { img: "02.png", col: ["col-xl-5", "col-md-6"], cat: "home.project2.cat", name: "home.project2.title" },
+  { img: "03.png", col: ["col-xl-5", "col-md-6"], cat: "home.project2.cat", name: "home.project2.title" },
+  { img: "04.png", col: ["col-xl-7", "col-md-6"], cat: "home.project3.cat", name: "home.project3.title" },
+  { img: "05.png", col: ["col-md-6"], cat: "home.project2.cat", name: "home.project2.title" },
+  { img: "06.png", col: ["col-md-6"], cat: "home.project2.cat", name: "home.project2.title" },
+];
+---
+
+<Base locale={locale} title={`Mustafa Arch - ${t("nav.portfolio")}`}>
+  <Breadcrumb locale={locale} titleKey="portfolio.title" />
+  <Marquee text={t("about.study.eyebrow")} />
+
+  <!-- Projects -->
+  <section class="project-standard-section section-padding fix section-bg">
+    <div class="container">
+      <div class="project-standard-wrapper">
+        <div class="row">
+          {projects.map((p, i) => (
+            <div class={p.col.join(" ")}>
+              <div class:list={["project-items-2", { "mt-0": i === 0, "mt-md-0": i === 1 }]} class="wow fadeInUp" data-wow-delay={`.${(i + 1) * 2}s`}>
+                <div class="images"><img src={`/assets/img/project/${p.img}`} alt="img" /></div>
+                <div class="content">
+                  <div class="text">
+                    <span>{t(p.cat)}</span>
+                    <h4><a href="/portfolio">{t(p.name)}</a></h4>
+                  </div>
+                  <div class="icon"><a href="/portfolio"><i class="fa-solid fa-arrow-right"></i></a></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer marquee CTA -->
+  <footer class="footer-section fix">
+    <div class="bg-shape"><img src="/assets/img/footer/bg-shape.png" alt="img" /></div>
+    <div class="mycustom-marque">
+      <div class="scrolling-wrap style-2">
+        {[1, 2, 3].map(() => (
+          <div class="comm">
+            <div></div>
+            <div class="cmn-textslide">{t("contact.subtitle")}</div>
+            <div class="cmn-textslide">TOGETHER</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-widget-wrapper">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="footer-item">
+              <a href="/" class="footer-logo wow fadeInUp" data-wow-delay=".3s">
+                <img src="/assets/img/logo/Logo-black.svg" alt="img" />
+              </a>
+              <ul class="footer-list-items wow fadeInUp" data-wow-delay=".5s">
+                <li><a href="/about">{t("nav.about").toUpperCase()}</a></li>
+                <li><a href="/service">{t("nav.services").toUpperCase()}</a></li>
+                <li><a href="/portfolio">{t("nav.portfolio").toUpperCase()}</a></li>
+                <li><a href="/contact">{t("nav.contact").toUpperCase()}</a></li>
+              </ul>
+              <ul class="social-icon wow fadeInUp" data-wow-delay=".3s">
+                <li><i class="fab fa-facebook-f"></i>Facebook</li>
+                <li><i class="fa-brands fa-twitter"></i>Twitter</li>
+                <li><i class="fa-brands fa-linkedin-in"></i>Linkedin</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-wrapper">
+          <p class="wow fadeInUp" data-wow-delay=".3s">Copyright © <span>Mustafa Arch</span></p>
+          <ul class="footer-list wow fadeInUp" data-wow-delay=".5s">
+            <li><a href="/contact">Terms &amp; Conditions</a></li>
+            <li><a href="/contact">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</Base>

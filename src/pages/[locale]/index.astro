@@ -1,0 +1,361 @@
+---
+
+import Base from "../../layouts/Base.astro";
+import { t, setLocale } from "../../i18n/ui";
+setLocale(Astro.params.locale ?? "en");
+
+export function getStaticPaths() {
+  return [{ params: { locale: "en" } }, { params: { locale: "fr" } }, { params: { locale: "ar" } }];
+}
+const locale = Astro.params.locale ?? "en";
+---
+
+<Base locale={locale} title={`Mustafa Arch - ${t("nav.home")}`}>
+  <!-- Hero -->
+  <section class="hero-section hero-3 bg-cover fix" style="background-image: url(/assets/img/hero/bg-3.jpg);">
+    <div class="balance-shape float-bob-x"><img src="/assets/img/shape/balance.png" alt="shape" /></div>
+    <div class="ruler-shape float-bob-y"><img src="/assets/img/shape/rules-coler-2.png" alt="shape" /></div>
+    <div class="random-shape float-bob-y"><img src="/assets/img/shape/random-shape-2.png" alt="random-shape" /></div>
+
+    <div class="hero-info">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Linked in</a>
+      <a href="#">Dribbble</a>
+    </div>
+    <div class="container-fluid">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="hero-content-wrapper">
+            <span class="wow fadeInUp"><img src="/assets/img/icon/32.svg" alt="icon" />{t("hero.eyebrow")}</span>
+            <h1 class="wow fadeInUp" data-wow-delay=".2s"><span set:html={t("hero.title")} /></h1>
+            <p class="wow fadeInUp" data-wow-delay=".3s">{t("hero.description")}</p>
+            <a href="/contact" class="theme-btn wow fadeInUp" data-wow-delay=".4s">
+              {t("common.hireMe")} <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-image">
+            <img src="/assets/img/hero/hero-3.png" alt="img" class="wow img-custom-anim-top" data-wow-duration="1.3s" data-wow-delay="0.3s" />
+            <div class="bg-shape">
+              <img src="/assets/img/hero/blur.png" alt="img" class="wow img-custom-anim-right" data-wow-duration="1.3s" data-wow-delay="0.3s" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="feature-section-2">
+    <div class="container">
+      <div class="feature-wrapper">
+        <div class="row g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-item wow fadeInUp" data-wow-delay=".3s">
+              <div class="icon"><img src="/assets/img/icon/33.svg" alt="icon" /></div>
+              <div class="content">
+                <h4><a href="/contact">{t("home.features.title1")}</a></h4>
+                <p>{t("home.features.desc")}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-item wow fadeInUp" data-wow-delay=".6s">
+              <div class="icon"><img src="/assets/img/icon/34.svg" alt="icon" /></div>
+              <div class="content">
+                <h4><a href="/contact">{t("home.features.title2")}</a></h4>
+                <p>{t("home.features.desc")}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-item wow fadeInUp" data-wow-delay=".9s">
+              <div class="icon"><img src="/assets/img/icon/35.svg" alt="icon" /></div>
+              <div class="content">
+                <h4><a href="/contact">{t("home.features.title3")}</a></h4>
+                <p>{t("home.features.desc")}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about-section about-3 section-padding fix">
+    <div class="order-shape float-bob-y"><img src="/assets/img/shape/scale-orders.png" alt="shape" /></div>
+    <div class="scales-shape float-bob-x"><img src="/assets/img/shape/Scales-2.png" alt="img" /></div>
+    <div class="container">
+      <div class="about-wrapper-3">
+        <div class="row g-3 align-items-center justify-content-between">
+          <div class="col-lg-6">
+            <div class="about-images">
+              <img src="/assets/img/about/about-3.jpg" alt="img" class="wow img-custom-anim-left" data-wow-delay=".3s" />
+              <div class="circle-image">
+                <div class="text-image">
+                  <img src="/assets/img/about/text.png" alt="img" />
+                  <div class="client-image"><img src="/assets/img/about/client.png" alt="" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-content">
+              <div class="section-title">
+                <span class="style-3 wow fadeInUp"><img src="/assets/img/icon/32.svg" alt="icon" />{t("home.about.eyebrow")}</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.about.title")}</h2>
+                <p class="wow fadeInUp" data-wow-delay=".3s">{t("home.about.desc")}</p>
+              </div>
+              <div class="text wow fadeInUp" data-wow-delay=".5s">
+                <div class="icon"><img src="/assets/img/icon/36.svg" alt="icon" /></div>
+                <p>{t("home.about.note")}</p>
+              </div>
+              <div class="items">
+                <div class="item wow fadeInUp" data-wow-delay=".3s">
+                  <div class="icon"><img src="/assets/img/icon/37.svg" alt="icon" /></div>
+                  <h6>{t("home.about.item1")}</h6>
+                </div>
+                <div class="item wow fadeInUp" data-wow-delay=".6s">
+                  <div class="icon"><img src="/assets/img/icon/38.svg" alt="icon" /></div>
+                  <h6>{t("home.about.item2")}</h6>
+                </div>
+              </div>
+              <div class="about-btn">
+                <a href="/about" class="theme-btn">{t("common.learnMore")} <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://www.youtube.com/watch?v=8Q3jJA60jWo" class="video-btn video-popup">
+                  <span class="icon"><i class="fa-solid fa-play"></i></span>
+                  <span class="textx">{t("home.about.video")}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="service-section service-3 section-padding section-bg fix">
+    <div class="random-shape float-bob-x"><img src="/assets/img/shape/random-shape-3.png" alt="shape" /></div>
+    <div class="container">
+      <div class="section-title text-center">
+        <span class="style-3 wow fadeInUp"><img src="/assets/img/icon/32.svg" alt="icon" />{t("home.services.eyebrow")}<img src="/assets/img/icon/32.svg" alt="icon" /></span>
+        <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.services.title")}</h2>
+      </div>
+      <div class="row">
+        {[1, 2, 3].map((n) => (
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item wow fadeInUp" data-wow-delay={`.${n * 3}s`}>
+              <div class="icon"><img src={`/assets/img/icon/${38 + n}.svg`} alt="" /></div>
+              <div class="content">
+                <h4><a href="/service">{t(`home.service${n}.title`)}</a></h4>
+                <p>{t(`home.service${n}.desc`)}</p>
+              </div>
+              <a href="/service" class="theme-btn">{t("common.readMore")} <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section class="client-section section-padding fix">
+    <div class="container">
+      <div class="client-wrapper-2">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="client-item-wrapper">
+              {["11", "12", "13", "14", "15"].map((logo) => (
+                <div class="client-item wow fadeInUp" data-wow-delay=".2s">
+                  <img src={`/assets/img/client/${logo}.png`} alt="img" />
+                </div>
+              ))}
+              <div class="client-item wow fadeInUp" data-wow-delay=".8s">
+                <div class="content">
+                  <h2><span class="count">45</span>+</h2>
+                  <p>{t("home.clients.countLabel")}</p>
+                </div>
+              </div>
+              <div class="client-item wow fadeInUp style-2" data-wow-delay=".2s">
+                <a href="/contact">{t("common.viewAllLogo")}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="client-content">
+              <div class="section-title">
+                <span class="wow fadeInUp"><img src="/assets/img/shape/star-2.png" alt="icon" />Clients</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.clients.title")}</h2>
+              </div>
+              <p class="wow fadeInUp mt-3 mt-mb-0" data-wow-delay=".3s">{t("home.clients.desc")}</p>
+              <div class="icon wow fadeInUp" data-wow-delay=".4s"><img src="/assets/img/client/avater.png" alt="icon" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="project-section project-3 section-padding section-bg fix">
+    <div class="scale-shape float-bob-x"><img src="/assets/img/shape/Scales-3.png" alt="img" /></div>
+    <div class="regulation-shape float-bob-y"><img src="/assets/img/shape/regulation.png" alt="img" /></div>
+    <div class="container">
+      <div class="section-title-area">
+        <div class="section-title">
+          <span class="style-3 wow fadeInUp"><img src="/assets/img/icon/32.svg" alt="icon" />{t("home.projects.eyebrow")}</span>
+          <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.projects.title")}</h2>
+        </div>
+        <a href="/portfolio" class="theme-btn">{t("common.viewAllProjects")} <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="project-wrapper-3">
+        <div class="main-box">
+          {[1, 2, 3].map((n, i) => (
+            <div class:list={[`box-2`, { "active": i === 0, [`bg-${i}`]: i > 0 }]} class="wow fadeInUp" data-wow-delay={`.${i * 2}s`}>
+              <div class="project-content">
+                <div class="text">
+                  <span>{t(`home.project${n}.cat`)}</span>
+                  <h4><a href="/portfolio">{t(`home.project${n}.title`)}</a></h4>
+                </div>
+                <a href="/portfolio" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="experience-section experience-3 section-padding fix">
+    <div class="random-shape float-bob-x"><img src="/assets/img/shape/star-5.png" alt="img" /></div>
+    <div class="container">
+      <div class="section-title text-center">
+        <span class="style-3 wow fadeInUp"><img src="/assets/img/icon/32.svg" alt="icon" />{t("home.experience.eyebrow")}<img src="/assets/img/icon/32.svg" alt="icon" /></span>
+        <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.experience.title")}</h2>
+      </div>
+      <div class="experience-main-wrapper">
+        {[1, 2, 3].map((n) => (
+          <div class="content-item wow fadeInUp" data-wow-delay={`.${n * 3}s`}>
+            <div class="head">
+              <h4><img src="/assets/img/icon/32.svg" alt="icon" /> {t(`home.exp${n}.title`)}</h4>
+              <span>{t(`home.exp${n}.period`)}</span>
+            </div>
+            <div class="text">
+              <ul class="list">
+                <li><i class="fa-solid fa-circle-chevron-right"></i>{t(`home.exp${n}.li1`)}</li>
+                <li><i class="fa-solid fa-circle-chevron-right"></i>{t(`home.exp${n}.li2`)}</li>
+              </ul>
+              <div class="logo"><img src={`/assets/img/project/${11 + n}.png`} alt="img" /></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section testimonials-3 section-padding section-bg fix">
+    <div class="scale-shape float-bob-x"><img src="/assets/img/shape/Scales.png" alt="shape" /></div>
+    <div class="orders-shape float-bob-y"><img src="/assets/img/shape/scale-orders-2.png" alt="shape" /></div>
+    <div class="container">
+      <div class="section-title-area">
+        <div class="section-title">
+          <span class="style-3 wow fadeInUp"><img src="/assets/img/shape/star-2.png" alt="img" />{t("home.testimonials.eyebrow")}</span>
+          <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.testimonials.title")}</h2>
+        </div>
+        <div class="slide-btn">
+          <button class="array-prev style-2"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="array-next style-2"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="swiper testimonial-slider-2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonials-card-item">
+                  <div class="content">
+                    <div class="star">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>{t("home.testimonials.quote")}</p>
+                    <div class="bottom">
+                      <div class="info">
+                        <h4>{t("home.testimonials.author")}</h4>
+                        <span>{t("home.testimonials.role")}</span>
+                      </div>
+                      <div class="icon"><img src="/assets/img/testimonials/glyph.png" alt="icon" /></div>
+                    </div>
+                  </div>
+                  <div class="thumb-box wow img-custom-anim-top"><img src="/assets/img/testimonials/5.jpg" alt="img" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="thumb">
+            <img src="/assets/img/testimonials/6.jpg" alt="img" class="wow img-custom-anim-top" data-wow-delay=".3s" />
+            <div class="info">
+              <h4>{t("home.testimonials.author")}</h4>
+              <span>{t("home.testimonials.role")}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funfact -->
+  <section class="funfact-section">
+    <div class="container">
+      <div class="funfact-wrapper">
+        <div class="row g-3">
+          {[1, 2, 3, 4].map((n) => (
+            <div class="col-lg-3 col-md-6">
+              <div class="item wow fadeInUp" data-wow-delay={`.${n * 2}s`}>
+                <h2>{t(`home.facts.f${n}`)}</h2>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="news-section news-1 style-3 section-padding fix">
+    <div class="regulation-shape float-bob-x"><img src="/assets/img/shape/regulation.png" alt="shape" /></div>
+    <div class="container">
+      <div class="section-title-area">
+        <div class="section-title">
+          <span class="style-3 wow fadeInUp"><img src="/assets/img/icon/32.svg" alt="icon" />{t("home.news.eyebrow")}</span>
+          <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.news.title")}</h2>
+        </div>
+        <a href="/portfolio" class="theme-btn">{t("common.viewAll")}<i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="row">
+        {[24, 25, 26].map((img, i) => (
+          <div class="col-lg-4 col-md-6">
+            <div class="news-item-3 wow fadeInUp" data-wow-delay={`.${(i + 1) * 3}s`}>
+              <div class="content">
+                <ul class="news-meta">
+                  <li>Mustafa Arch</li>
+                  <li class="date"><span></span>{t("home.news.date")}</li>
+                </ul>
+                <h4><a href="/service">{t("home.news.readMore")}</a></h4>
+              </div>
+              <div class="thumb"><img src={`/assets/img/news/${img}.jpg`} alt="img" /></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,98 @@
+---
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  locale?: string;
+}
+
+const { title, description = "Mustafa Arch - Portfolio & Visualization Services" } = Astro.props;
+const locale = Astro.props.locale ?? Astro.params.locale ?? "en";
+const dir = locale === "ar" ? "rtl" : "ltr";
+---
+
+<!DOCTYPE html>
+<html lang={locale} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Mustafa BEN" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="shortcut icon" href="/assets/img/favicon.svg" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/animate.css" />
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/assets/css/meanmenu.css" />
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/css/nice-select.css" />
+    <link rel="stylesheet" href="/assets/css/color.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!-- RTL adjustments for Arabic -->
+    {dir === "rtl" && <style>
+      body { direction: rtl; text-align: right; }
+      .hero-info a, .footer-list, .footer-list-2 { text-align: right; }
+      .theme-btn i { transform: rotate(180deg); }
+      .offcanvas__contact ul li { flex-direction: row-reverse; }
+      .social-icon { justify-content: flex-start; }
+      .hero-content-wrapper { text-align: right; }
+    </style>}
+  </head>
+  <body class="body-color">
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="animation-preloader">
+        <div class="spinner"></div>
+        <div class="txt-loading">
+          <span data-text-preloader="M" class="letters-loading">M</span>
+          <span data-text-preloader="U" class="letters-loading">U</span>
+          <span data-text-preloader="S" class="letters-loading">S</span>
+          <span data-text-preloader="T" class="letters-loading">T</span>
+          <span data-text-preloader="A" class="letters-loading">A</span>
+          <span data-text-preloader="F" class="letters-loading">F</span>
+          <span data-text-preloader="A" class="letters-loading">A</span>
+        </div>
+        <p class="text-center">Loading</p>
+      </div>
+      <div class="loader">
+        <div class="row">
+          <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+          <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+          <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+          <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back To Top -->
+    <button id="back-top" class="back-to-top"><i class="fa-regular fa-arrow-up"></i></button>
+
+    <!-- Mouse Cursor -->
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+
+    <Header />
+
+    <slot />
+
+    <Footer />
+
+    <script is:inline src="/assets/js/jquery-3.7.1.min.js"></script>
+    <script is:inline src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script is:inline src="/assets/js/jquery.meanmenu.min.js"></script>
+    <script is:inline src="/assets/js/swiper-bundle.min.js"></script>
+    <script is:inline src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script is:inline src="/assets/js/jquery.nice-select.min.js"></script>
+    <script is:inline src="/assets/js/jquery.counterup.min.js"></script>
+    <script is:inline src="/assets/js/jquery.waypoints.js"></script>
+    <script is:inline src="/assets/js/viewport.jquery.js"></script>
+    <script is:inline src="/assets/js/typed.min.js"></script>
+    <script is:inline src="/assets/js/wow.min.js"></script>
+    <script is:inline src="/assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+---
+
+import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import Marquee from "../../components/Marquee.astro";
+import { t, setLocale } from "../../i18n/ui";
+setLocale(Astro.params.locale ?? "en");
+
+export function getStaticPaths() {
+  return [{ params: { locale: "en" } }, { params: { locale: "fr" } }, { params: { locale: "ar" } }];
+}
+const locale = Astro.params.locale ?? "en";
+---
+
+<Base locale={locale} title={`Mustafa Arch - ${t("nav.about")}`}>
+  <Breadcrumb locale={locale} titleKey="about.title" />
+  <Marquee text={t("about.study.eyebrow")} />
+
+  <!-- About Section -->
+  <section class="about-section fix section-padding">
+    <div class="container">
+      <div class="section-title-area">
+        <div class="section-title">
+          <span class="wow fadeInUp"><img src="/assets/img/shape/star-2.png" alt="img" />{t("home.about.eyebrow")}</span>
+          <h2 class="wow fadeInUp" data-wow-delay=".2s">
+            {t("home.about.title")}
+          </h2>
+        </div>
+        <div class="content">
+          <p>{t("about.hero.desc")}</p>
+          <a href="/contact" class="theme-btn">{t("common.learnMore")}
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="about-wrapper-1">
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="about-box-item">
+              <h2><span class="count">10</span>+</h2>
+              <h3>{t("home.about.item1")} <br /><span>{t("home.experience.title")}...</span></h3>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="about-box-item style-2">
+              <h2><span class="count">1400</span>k</h2>
+              <h3>{t("home.clients.countLabel")} <br /><span>Worldwide...</span></h3>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="about-box-item">
+              <h2><span class="count">500</span>k</h2>
+              <h3>{t("home.projects.title")} <br /><span>Done...</span></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience-section section-padding section-bg fix">
+    <div class="container">
+      <div class="section-title text-center">
+        <span class="wow fadeInUp"><img src="/assets/img/shape/star-2.png" alt="img" />{t("home.experience.title")}<img src="/assets/img/shape/star-2.png" alt="img" /></span>
+        <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("home.experience.title")}</h2>
+      </div>
+      <div class="experience-wrapper">
+        <div class="experience-items wow fadeInUp" data-wow-delay=".2s">
+          <span>{t("home.exp1.period")}</span>
+          <h4>{t("home.exp1.title")}</h4>
+          <h6>Mustafa Arch</h6>
+        </div>
+        <div class="experience-items wow fadeInUp" data-wow-delay=".4s">
+          <span>{t("home.exp2.period")}</span>
+          <h4>{t("about.study.title")}</h4>
+          <h6>Behance</h6>
+        </div>
+        <div class="experience-items wow fadeInUp" data-wow-delay=".6s">
+          <span>{t("home.exp2.period")}</span>
+          <h4>{t("about.skill1")}</h4>
+          <h6>Product Hunt</h6>
+        </div>
+        <div class="experience-items wow fadeInUp" data-wow-delay=".8s">
+          <span>{t("home.exp3.period")}</span>
+          <h4>{t("about.study.subtitle")}</h4>
+          <h6>Pinterest</h6>
+        </div>
+      </div>
+      <div class="client-wrapper">
+        <div class="client-items">
+          <div class="client-item">
+            <div class="icon"><img src="/assets/img/client/1.svg" alt="img" /></div>
+            <h4 class="number"><span class="count">98</span>% <span class="text">Figma</span></h4>
+          </div>
+          <div class="client-item">
+            <div class="icon"><img src="/assets/img/client/2.svg" alt="img" /></div>
+            <h4 class="number"><span class="count">90</span>% <span class="text">Photoshop</span></h4>
+          </div>
+          <div class="client-item">
+            <div class="icon"><img src="/assets/img/client/3.svg" alt="img" /></div>
+            <h4 class="number"><span class="count">79</span>% <span class="text">Illustrator</span></h4>
+          </div>
+          <div class="client-item">
+            <div class="icon"><img src="/assets/img/client/4.svg" alt="img" /></div>
+            <h4 class="number"><span class="count">88</span>% <span class="text">Sketch</span></h4>
+          </div>
+          <div class="client-item">
+            <div class="icon"><img src="/assets/img/client/5.svg" alt="img" /></div>
+            <h4 class="number"><span class="count">93</span>% <span class="text">Adobe_Xd</span></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section testimonials-1 section-padding section-bg-2 fix">
+    <div class="random-shape float-bob-x"><img src="/assets/img/shape/random-shape.png" alt="img" /></div>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="section-title">
+            <span class="wow fadeInUp"><img src="/assets/img/shape/star-2.png" alt="img" />{t("home.testimonials.eyebrow")}</span>
+            <h2 class="wow fadeInUp" data-wow-delay=".2s">{t("about.subtitle")}</h2>
+          </div>
+          <div class="reviews wow fadeInUp" data-wow-delay=".4s">
+            <h2 class="count">4.8</h2>
+            <div class="item">
+              <span>1200+ {t("home.clients.countLabel")}.</span>
+              <div class="star">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="testimonials-wrapper">
+            <div class="swiper testimonial-slider">
+              <div class="swiper-wrapper">
+                {[1, 2, 3].map(() => (
+                  <div class="swiper-slide">
+                    <div class="testimonial-box-items">
+                      <div class="client-info">
+                        <img src="/assets/img/testimonials/1.png" alt="img" />
+                        <div class="client-content">
+                          <h5>{t("home.testimonials.author")}</h5>
+                          <p>{t("home.testimonials.role")}</p>
+                        </div>
+                      </div>
+                      <div class="testi-content">
+                        <div class="icon"><img src="/assets/img/icon/42.svg" alt="img" /></div>
+                        <p>{t("home.testimonials.quote")}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="contact-cta-section section-padding fix">
+    <div class="container text-center">
+      <h2 class="wow fadeInUp">{t("contact.subtitle")}</h2>
+      <a href="/contact" class="theme-btn wow fadeInUp" data-wow-delay=".2s">
+        {t("nav.letsTalk")} <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+</Base>

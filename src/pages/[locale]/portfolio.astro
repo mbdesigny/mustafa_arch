@@ -33,13 +33,13 @@ const projects = [
           {projects.map((p, i) => (
             <div class={p.col.join(" ")}>
               <div class:list={["project-items-2", { "mt-0": i === 0, "mt-md-0": i === 1 }]} class="wow fadeInUp" data-wow-delay={`.${(i + 1) * 2}s`}>
-                <div class="images"><img src={`/assets/img/project/${p.img}`} alt="img" /></div>
+                <div class="images"><img src={`assets/img/project/${p.img}`} alt="img" /></div>
                 <div class="content">
                   <div class="text">
                     <span>{t(p.cat)}</span>
-                    <h4><a href="/portfolio">{t(p.name)}</a></h4>
+                    <h4><a href="portfolio">{t(p.name)}</a></h4>
                   </div>
-                  <div class="icon"><a href="/portfolio"><i class="fa-solid fa-arrow-right"></i></a></div>
+                  <div class="icon"><a href="portfolio"><i class="fa-solid fa-arrow-right"></i></a></div>
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ const projects = [
 
   <!-- Footer marquee CTA -->
   <footer class="footer-section fix">
-    <div class="bg-shape"><img src="/assets/img/footer/bg-shape.png" alt="img" /></div>
+    <div class="bg-shape"><img src="assets/img/footer/bg-shape.png" alt="img" /></div>
     <div class="mycustom-marque">
       <div class="scrolling-wrap style-2">
         {[1, 2, 3].map(() => (
@@ -68,14 +68,14 @@ const projects = [
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <div class="footer-item">
-              <a href="/" class="footer-logo wow fadeInUp" data-wow-delay=".3s">
-                <img src="/assets/img/logo/Logo-black.svg" alt="img" />
+              <a href="" class="footer-logo wow fadeInUp" data-wow-delay=".3s">
+                <img src="assets/img/logo/Logo-black.svg" alt="img" />
               </a>
               <ul class="footer-list-items wow fadeInUp" data-wow-delay=".5s">
-                <li><a href="/about">{t("nav.about").toUpperCase()}</a></li>
-                <li><a href="/service">{t("nav.services").toUpperCase()}</a></li>
-                <li><a href="/portfolio">{t("nav.portfolio").toUpperCase()}</a></li>
-                <li><a href="/contact">{t("nav.contact").toUpperCase()}</a></li>
+                <li><a href="about">{t("nav.about").toUpperCase()}</a></li>
+                <li><a href="service">{t("nav.services").toUpperCase()}</a></li>
+                <li><a href="portfolio">{t("nav.portfolio").toUpperCase()}</a></li>
+                <li><a href="contact">{t("nav.contact").toUpperCase()}</a></li>
               </ul>
               <ul class="social-icon wow fadeInUp" data-wow-delay=".3s">
                 <li><i class="fab fa-facebook-f"></i>Facebook</li>
@@ -90,8 +90,8 @@ const projects = [
         <div class="footer-bottom-wrapper">
           <p class="wow fadeInUp" data-wow-delay=".3s">Copyright © <span>Mustafa Arch</span></p>
           <ul class="footer-list wow fadeInUp" data-wow-delay=".5s">
-            <li><a href="/contact">Terms &amp; Conditions</a></li>
-            <li><a href="/contact">Privacy Policy</a></li>
+            <li><a href="contact">Terms &amp; Conditions</a></li>
+            <li><a href="contact">Privacy Policy</a></li>
           </ul>
         </div>
       </div>

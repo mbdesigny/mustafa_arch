@@ -5,12 +5,12 @@ import { t, allLocales, localeNames } from "../i18n/ui";
 const locale = Astro.props.locale ?? Astro.params.locale ?? "en";
 
 const menu = [
-  { key: "nav.home", path: "/" },
-  { key: "nav.about", path: "/about" },
-  { key: "nav.services", path: "/service" },
-  { key: "nav.portfolio", path: "/portfolio" },
-  { key: "nav.faq", path: "/faq" },
-  { key: "nav.contact", path: "/contact" },
+  { key: "nav.home", path: "" },
+  { key: "nav.about", path: "about" },
+  { key: "nav.services", path: "service" },
+  { key: "nav.portfolio", path: "portfolio" },
+  { key: "nav.faq", path: "faq" },
+  { key: "nav.contact", path: "contact" },
 ];
 ---
 
@@ -21,8 +21,8 @@ const menu = [
       <div class="offcanvas__content">
         <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
           <div class="offcanvas__logo">
-            <a href="/">
-              <img src="/assets/img/logo/Logo-black.svg" alt="logo-img" />
+            <a href="">
+              <img src="assets/img/logo/Logo-black.svg" alt="logo-img" />
             </a>
           </div>
           <div class="offcanvas__close"><button><i class="fas fa-times"></i></button></div>
@@ -49,7 +49,7 @@ const menu = [
             </li>
           </ul>
           <div class="header-button mt-4 text-center">
-            <a href="/contact" class="theme-btn">{t("nav.letsTalkBtn")} <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="contact" class="theme-btn">{t("nav.letsTalkBtn")} <i class="fa-solid fa-arrow-right"></i></a>
           </div>
           <div class="social-icon d-flex align-items-center">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -70,8 +70,8 @@ const menu = [
     <div class="mega-menu-wrapper">
       <div class="header-main">
         <div class="logo">
-          <a href="/" class="header-logo"><img src="/assets/img/logo/logo-white.svg" alt="logo-img" /></a>
-          <div class="logo-2"><a href="/"><img src="/assets/img/logo/Logo-black.svg" alt="" /></a></div>
+          <a href="" class="header-logo"><img src="assets/img/logo/logo-white.svg" alt="logo-img" /></a>
+          <div class="logo-2"><a href=""><img src="assets/img/logo/Logo-black.svg" alt="" /></a></div>
         </div>
         <div class="mean__menu-wrapper">
           <div class="main-menu style-2">
@@ -93,7 +93,7 @@ const menu = [
               const active = lang === locale;
               return (
                 <a
-                  href={`/${lang}`}
+                  href={lang === "en" ? "" : lang}
                   data-locale={lang}
                   class:list={[{ active }]}
                   style={`font-weight: ${active ? 700 : 400}; opacity: ${active ? 1 : 0.6}; padding: 0 6px; color: inherit;`}
@@ -104,7 +104,7 @@ const menu = [
               );
             })}
           </div>
-          <a href="/contact" class="theme-btn style-2">
+          <a href="contact" class="theme-btn style-2">
             {t("nav.letsTalk")} <i class="fa-sharp fa-regular fa-arrow-right"></i>
           </a>
           <div class="header__hamburger d-xl-none my-auto">

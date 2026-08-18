@@ -1,14 +1,14 @@
 {
-	"pid": 4457,
-	"port": 4321,
-	"url": "http://localhost:4321",
+	"pid": 9616,
+	"port": 4444,
+	"url": "http://localhost:4444",
 	"urls": {
 		"local": [
-			"http://localhost:4321/"
+			"http://localhost:4444/mustafa_arch/"
 		],
 		"network": [],
 		"networkInterfaceNames": []
 	},
 	"background": false,
-	"startedAt": "2026-08-18T04:47:35.883Z"
+	"startedAt": "2026-08-18T05:49:37.787Z"
 }

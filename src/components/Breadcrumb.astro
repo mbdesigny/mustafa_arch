@@ -14,17 +14,17 @@ const pageTitle = titleKey ? t(titleKey) : Astro.props.title;
 
 <section class="breadcrumb-section bg-cover fix" style="background-image: url(/assets/img/breadcrumb/bg.jpg);">
   <div class="star-shape">
-    <img src="/assets/img/shape/star.png" alt="img" />
+    <img src="assets/img/shape/star.png" alt="img" />
   </div>
   <div class="arrow-shape">
-    <img src="/assets/img/breadcrumb/arrow.png" alt="img" />
+    <img src="assets/img/breadcrumb/arrow.png" alt="img" />
   </div>
   <div class="container">
     <div class="row">
       <div class="page-heading">
         <h2>{pageTitle}</h2>
         <ul class="breadcrumb-list">
-          <li><a href="/">{t("nav.home")}</a></li>
+          <li><a href="">{t("nav.home")}</a></li>
           <li><i class="fa-solid fa-angle-right"></i></li>
           <li class="active">{pageTitle}</li>
         </ul>

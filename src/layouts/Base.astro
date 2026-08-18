@@ -23,6 +23,7 @@ const dir = locale === "ar" ? "rtl" : "ltr";
     <meta name="author" content="Mustafa BEN" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <base href={Astro.site ? Astro.site.href : import.meta.env.BASE_URL} />
     <link rel="shortcut icon" href="/assets/img/favicon.svg" />
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />

@@ -123,10 +123,12 @@ const menu = [
       link.addEventListener("click", function (e) {
         e.preventDefault();
         var lang = link.getAttribute("data-locale");
+        var base = document.querySelector("base") ? document.querySelector("base").getAttribute("href") : "/";
+        base = base.replace(/[^/]*$/, ""); /* keep trailing slash */
         var path = window.location.pathname.replace(/^\/(en|fr|ar)/, "");
         if (!path) path = "/";
-        var target = lang === "en" ? path : "/" + lang + path;
-        if (target === window.location.pathname) return;
+        var target = base + (lang === "en" ? path.slice(1) : lang + path);
+        if (target === window.location.href) return;
         window.location.href = target;
       });
     });
